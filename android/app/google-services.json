@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "634653708507",
+    "project_id": "asahi-todo-dev",
+    "storage_bucket": "asahi-todo-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634653708507:android:d6a73909243cbc8bacfcfe",
+        "android_client_info": {
+          "package_name": "com.example.asahi_todo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgyDKCTMh_pYwY72w6t6kB45dX0uezxIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
