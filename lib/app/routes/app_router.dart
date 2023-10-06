@@ -6,7 +6,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => FirestoreScreen(),
+      builder: (context, state) => const FirestoreScreen(),
     ),
   ],
 );

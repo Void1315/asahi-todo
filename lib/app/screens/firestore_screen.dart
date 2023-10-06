@@ -1,4 +1,3 @@
-import 'package:asahi_todo/app/app.dart';
 import 'package:asahi_todo/app/models/user.dart';
 import 'package:asahi_todo/core/logger/app_logger.dart';
 import 'package:asahi_todo/di/di.dart';
@@ -6,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class FirestoreScreen extends StatelessWidget {
-  FirestoreScreen({Key? key}) : super(key: key);
+  const FirestoreScreen({Key? key}) : super(key: key);
 
   void queryUsers() async {
     await inject<FirebaseFirestore>().collection("users").get().then((event) {
@@ -19,7 +18,7 @@ class FirestoreScreen extends StatelessWidget {
 
   void addUser() async {
     // 生成随机的name字符串 和 随机的age数字
-    String name = "name" + DateTime.now().millisecondsSinceEpoch.toString();
+    String name = "name${DateTime.now().millisecondsSinceEpoch}";
     int age = DateTime.now().millisecondsSinceEpoch % 100;
     User user = User(name: name, age: age);
     await inject<FirebaseFirestore>()
