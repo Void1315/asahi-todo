@@ -3,9 +3,10 @@ import 'package:asahi_todo/core/logger/app_logger.dart';
 import 'package:asahi_todo/di/di.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class FirestoreScreen extends StatelessWidget {
-  const FirestoreScreen({Key? key}) : super(key: key);
+class FirestorePage extends StatelessWidget {
+  const FirestorePage({Key? key}) : super(key: key);
 
   void queryUsers() async {
     await inject<FirebaseFirestore>().collection("users").get().then((event) {
@@ -21,8 +22,7 @@ class FirestoreScreen extends StatelessWidget {
     String name = "name${DateTime.now().millisecondsSinceEpoch}";
     int age = DateTime.now().millisecondsSinceEpoch % 100;
     User user = User(name: name, age: age);
-    await inject<FirebaseFirestore>()
-        .collection("users").add(user.toJson());
+    await inject<FirebaseFirestore>().collection("users").add(user.toJson());
   }
 
   // 删除最后一条User数据
@@ -46,7 +46,16 @@ class FirestoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Test Firestore")),
+      appBar: AppBar(
+        title: const Text("Test Firestore"),
+        // 带一个返回按钮
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            context.pop(true);
+          },
+        ),
+      ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
